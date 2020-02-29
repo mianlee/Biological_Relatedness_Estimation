@@ -21,6 +21,6 @@ There are many programs for estimating relationship levels, such as [PLINK](http
 **Here, I will recommand two programs that work very well with ancient DNA or low-coverage data: [READ](https://bitbucket.org/tguenther/read) and [lcMLkin](https://github.com/COMBINE-lab/maximum-likelihood-relatedness-estimation).** 
 
 
-**Note:**
+**Comment:**
 
 **SNPduo** and **ERSA** may be not suitable for ancient DNA because they require high coverage, diploid genotype data as input. I personally tried [KING](http://people.virginia.edu/~wc9c/KING/manual.html), and it is very easy to work with. And [Martin Sikora et.al. Nature 2019](https://www.nature.com/articles/s41586-019-1279-z) used this program in their paper. However, my kin relationship results on psuedo-haploid SNPs data from [KING](http://people.virginia.edu/~wc9c/KING/manual.html) are different from [READ](https://bitbucket.org/tguenther/read). READ might work better for ancient DNA, in my opinion, see [their paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0195491). Or you need diploid data to work with [KING](http://people.virginia.edu/~wc9c/KING/manual.html). I also tried PLINK using psuedo-haploid SNPs data, it can't predict the relationship, in my opinion, it also need diploid genotype.
