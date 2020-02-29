@@ -19,7 +19,7 @@ The	measurement of SNPs by high	density	microarrays	can	provide	information	abou
 There are many programs for estimating relationship levels, such as [PLINK](https://www.cog-genomics.org/plink2/), [SNPduo](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006711), [ERSA](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3083094/), [KING](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3025716/), [REAP](https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/22748210/), [GRAB](https://www.ncbi.nlm.nih.gov/pmc/articles/pmid/24586241/), [SEEKIN](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007021) and [GCTA](https://cnsgenomics.com/software/gcta/#Overview).
 
 
-I sitll need to try [SEEKIN](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007021) and [GCTA](https://cnsgenomics.com/software/gcta/#Overview), if I have time.
+I sitll need/want to try [SEEKIN](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007021) and [GCTA](https://cnsgenomics.com/software/gcta/#Overview), if I have time.
 
 **Here, I will recommand two programs that work well with ancient DNA or low-coverage data: [READ](https://bitbucket.org/tguenther/read) and [lcMLkin](https://github.com/COMBINE-lab/maximum-likelihood-relatedness-estimation).** 
 
