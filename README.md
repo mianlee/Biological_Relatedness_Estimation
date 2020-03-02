@@ -62,75 +62,26 @@ The input for READ are a set of **TPED/TFAM** files containing pseudo-haploid ge
 
 ```
 #making the par file 
-par.PACKEDANCESTRYMAP.turkey
+par.PACKEDANCESTRYMAP.subset
 
 
-genotypename:    UPA21_1104.geno
-snpname:         UPA21_1104.snp
-indivname:       UPA21_1104.ind
+genotypename:    maindataset.geno
+snpname:         maindataset.snp
+indivname:       maindataset.ind
 outputformat: eigenstrat    
-genotypeoutname: Turkey.geno
-snpoutname:      Turkey.snp
-indivoutname:    Turkey.ind
-poplistname:  Turkey
+genotypeoutname: subset.geno
+snpoutname:      subset.snp
+indivoutname:    subset.ind
+poplistname:  subset.list
 
 #run the par file
 
-convertf -p par.PACKEDANCESTRYMAP.turkey 
+convertf -p par.PACKEDANCESTRYMAP.subset
 ```
 
-I am extracting 12 ancient individuals of Turkey from our main dataset, so I have smaller dataset to work with. Based on the geographic location of archaeological site, we devided those 12 individuals into three populations/groups: Turkey1, Turkey2 and Turkey3.
+I am extracting subset ancient individuals from our main dataset, so I have smaller dataset to work with. Now, you will have ```subset.geno```, ```subset.ind```, and ```subset.snp```
 
-The poplistname file Turkey look like this: 
 
-```
-Turkey1
-Turkey2
-Turkey3
-```
-
-Modifiy the ```Turkey.ind``` file from 
-
-```
-               L5421 U    Turkey1
-               L5422 U    Turkey1
-               L5423 U    Turkey1
-               L5424 U    Turkey1
-               L5465 U    Turkey1
-               L5466 U    Turkey1
-               L5467 U    Turkey1
-               L5468 U    Turkey2
-               L5469 U    Turkey2
-               L7278 U    Turkey1
-               L7279 U    Turkey3
-               L7280 U    Turkey2
-```
-
-to
-
-```
-L5421 U Turkey1
-L5422 U Turkey1
-L5423 U Turkey1
-L5424 U Turkey1
-L5465 U Turkey1
-L5466 U Turkey1
-L5467 U Turkey1
-L5468 U Turkey2
-L5469 U Turkey2
-L7278 U Turkey1
-L7279 U Turkey3
-L7280 U Turkey2
-
-```
-
-using 
-
-```
-cat Turkey.ind | awk '{print $1 "\t" $2 "\t" $3}' > new.ind
-rm Turkey.ind
-mv new.ind Turkey.ind
-```
 
 2. Transform eigenstrat format to binary plink file
 
@@ -140,13 +91,13 @@ mv new.ind Turkey.ind
 par.Eigenstrat.PACKEDPED
 
 
-genotypename: Turkey.geno
-snpname: Turkey.snp
-indivname: Turkey.ind
+genotypename: subset.geno
+snpname: subset.snp
+indivname: subset.ind
 outputformat: PACKEDPED
-genotypeoutname: Turkey.bed
-snpoutname: Turkey.bim
-indivoutname: Turkey.fam
+genotypeoutname: subset.bed
+snpoutname: subset.bim
+indivoutname: subset.fam
 
 
 
@@ -159,22 +110,21 @@ Modify the ```.fam``` file and add population information at the first column (c
 ```
 #tab as deliminator
 
-Turkey1	L5421	0	0	0	1
-Turkey1	L5422	0	0	0	1
-Turkey1	L5423	0	0	0	1
-Turkey1	L5424	0	0	0	1
-Turkey1	L5465	0	0	0	1
-Turkey1	L5466	0	0	0	1
-Turkey1	L5467	0	0	0	1
-Turkey2	L5468	0	0	0	1
-Turkey2	L5469	0	0	0	1
-Turkey1	L7278	0	0	0	1
-Turkey3	L7279	0	0	0	1
-Turkey2	L7280	0	0	0	1
-
+Pop1	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop2	sampleID	0	0	0	1
+Pop2	sampleID	0	0	0	1
+Pop1	sampleID	0	0	0	1
+Pop3	sampleID	0	0	0	1
+Pop2	sampleID	0	0	0	1
 ```
 
-Now you should be able to get three binary plink files: ```Turkey.bed```, ```Turkey.bim```, ```Turkey.fam```.
+Now you should be able to get three binary plink files: ```subset.bed```, ```subset.bim```, ```subset.fam```.
 
 
 Convert binary plink file to a set of **TPED/TFAM** files (Transposed filesets):
@@ -182,17 +132,17 @@ Convert binary plink file to a set of **TPED/TFAM** files (Transposed filesets):
 ```
 # convert binary plink files to .ped and .map format
 
-plink --bfile Turkey --recode tab --out turkey
+plink --bfile subset --recode tab --out subset
 
 #convert plain plink file (.ped & .map ) to .tped &.tfam
 
-plink19 --file turkey --recode transpose --out turkeyT 
+plink19 --file subset --recode transpose --out subsetT 
 
 ```
 
 Here is the plink manual for [Data management tools](http://zzz.bwh.harvard.edu/plink/dataman.shtml#recode)
 
-You can get ```Turkey.tped``` and ```Turkey.tfam``` files as an input files for READ program.
+You can get ```subset.tped``` and ```subset.tfam``` files as an input files for READ program.
 
 
 ### Running READ
